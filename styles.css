@@ -162,7 +162,7 @@ div.memory_2:hover div[class$="_text"] , div.memory_4:hover div[class$="_text"] 
 @media (max-width: 600px) {
   
   div.lezi_wrapper_memory{
-    padding: 0 16px;
+    padding: 0 8px;
   }
   
   div.memory_1,
