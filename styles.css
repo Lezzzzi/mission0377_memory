@@ -1,0 +1,184 @@
+div.lezi_wrapper_memory{
+
+  max-width: 980px;
+
+}
+
+
+div.lezi_wrapper_memory img{
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  border-radius: 16px;
+
+}
+
+
+
+div.memory_1,
+
+div.memory_2,
+
+div.memory_3,
+
+div.memory_4 {
+
+  display: flex;       /* 啟用 Flexbox */
+
+  width: 100%;
+
+  /* 讓每個區塊成為定位參考點，以便使用 z-index 和負邊距 */
+
+  position: relative; 
+
+  /* 預設為 row (圖片左, 文字右) */
+
+  margin-top:16px;
+
+}
+
+
+
+div[class$="_pic"] { 
+
+    width: 80%; 
+
+    z-index: 10; /* 讓圖片在文字的下方（除非文字有 z-index 更高） */
+
+}
+
+
+
+div[class$="_text"]{
+
+  font-size: 32px;
+  font-weight: bold;
+  color: #404040;
+
+  /* 預設隱藏文字 (實現 Hover 效果的第一步) */
+  opacity: 0;
+
+  /* 讓文字內容垂直置中並靠左/右對齊 */
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-end;
+  z-index: 20; /* 讓文字在圖片上方 */
+  position: relative;
+
+}
+
+div[class$="_text"]::before {
+  /* 讓偽元素位於絕對位置，不佔用 Flex 空間 */
+  content: attr(data-storke);
+  position: absolute;
+  /* 確保偽元素在文字內容下方 (但仍高於圖片) */
+  z-index: -1; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  
+  /* 應用文字描邊效果 */
+  -webkit-text-stroke: 12px #ffffff;
+  color: transparent; /* 隱藏偽元素的填充顏色 */
+  
+  /* 複製文字容器的 Flex 屬性，確保描邊位置與文字內容一致 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* 複製對齊屬性，確保描邊與內容水平對齊 */
+  align-items: flex-start; /* 預設靠左對齊 */
+}
+
+
+
+div.memory_1 div[class$="_text"],
+
+div.memory_3 div[class$="_text"],
+
+div.memory__text { 
+
+  margin-left: -64px;
+
+}
+
+
+
+div.memory_2,
+
+div.memory_4 {
+
+  flex-direction: row-reverse; /* 關鍵：圖片右，文字左 */
+
+}
+
+
+
+div.memory_2 div[class$="_text"],
+
+div.memory_4 div[class$="_text"] {
+
+  /* 移除 margin-left */
+
+  margin-left: 0; 
+
+  margin-right: -64px; 
+
+  /* 讓文字內容靠右對齊 */
+
+  justify-content: flex-end;
+
+}
+
+
+
+div.memory_1:hover div[class$="_text"] , div.memory_3:hover div[class$="_text"] {
+
+  opacity: 1;
+
+  margin-left: -32px;
+
+  transition: 1s ease-in-out;
+
+}
+
+
+
+div.memory_2:hover div[class$="_text"] , div.memory_4:hover div[class$="_text"] {
+
+  opacity: 1;
+
+  margin-right: -32px;
+
+  transition: 1s ease-in-out;
+
+}
+
+
+@media (max-width: 600px) {
+  
+  div.lezi_wrapper_memory{
+    padding: 0 16px;
+  }
+  
+  div.memory_1,
+  div.memory_2,
+  div.memory_3,
+  div.memory_4 {
+    margin-top:8px;
+  }
+  
+  div[class$="_text"]{
+    font-size:20px;
+  }
+  
+  div[class$="_text"]::before {
+    -webkit-text-stroke: 8px #ffffff;
+  }
+  
+}
+
