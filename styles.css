@@ -62,7 +62,7 @@ div[class$="_text"]{
 
   font-size: 32px;
   font-weight: bold;
-  color: #404040;
+  color: #7C6C54;
 
   /* 預設隱藏文字 (實現 Hover 效果的第一步) */
   opacity: 0;
@@ -183,6 +183,12 @@ div.memory_2:hover div[class$="_text"] , div.memory_4:hover div[class$="_text"] 
   
   div[class$="_text"]::before {
     -webkit-text-stroke: 8px #ffffff;
+  }
+  
+  div.lezi_wrapper_memory img{
+
+  border-radius: 8px;
+
   }
   
 }
