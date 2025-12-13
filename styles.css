@@ -1,5 +1,5 @@
 body {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 
@@ -18,22 +18,13 @@ div.lezi_wrapper_memory img{
 
   height: auto;
 
-  border-radius: 16px;
-
 }
 
 
 
-div.memory_1,
-
-div.memory_2,
-
-div.memory_3,
-
-div.memory_4 {
+div.memory_1 , div.memory_2 , div.memory_3 , div.memory_4 {
 
   display: flex;       /* 啟用 Flexbox */
-
   width: 100%;
 
   /* 讓每個區塊成為定位參考點，以便使用 z-index 和負邊距 */
@@ -43,7 +34,13 @@ div.memory_4 {
   /* 預設為 row (圖片左, 文字右) */
 
   margin-top:16px;
+  
 
+  opacity: 0.8;
+}
+div.memory_1:hover , div.memory_2:hover , div.memory_3:hover , div.memory_4:hover {
+  transition: 0.5s ease-in-out;
+  opacity: 1;
 }
 
 
@@ -51,8 +48,11 @@ div.memory_4 {
 div[class$="_pic"] { 
 
     width: 80%; 
-
     z-index: 10; /* 讓圖片在文字的下方（除非文字有 z-index 更高） */
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    overflow: hidden;
+    
 
 }
 
@@ -60,7 +60,7 @@ div[class$="_pic"] {
 
 div[class$="_text"]{
 
-  font-size: 32px;
+  font-size: 72px;
   font-weight: bold;
   color: #7C6C54;
 
@@ -164,6 +164,9 @@ div.memory_2:hover div[class$="_text"] , div.memory_4:hover div[class$="_text"] 
 }
 
 
+
+
+
 @media (max-width: 600px) {
   
   div.lezi_wrapper_memory{
@@ -185,11 +188,15 @@ div.memory_2:hover div[class$="_text"] , div.memory_4:hover div[class$="_text"] 
     -webkit-text-stroke: 8px #ffffff;
   }
   
-  div.lezi_wrapper_memory img{
+  div[class$="_pic"] { 
 
-  border-radius: 8px;
+    box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    
 
-  }
+}
+  
+  
   
 }
 
