@@ -1,11 +1,13 @@
 body {
     overflow: hidden;
+    
 }
 
 
 div.lezi_wrapper_memory{
 
   max-width: 980px;
+  padding: 0 16px;
 
 }
 
